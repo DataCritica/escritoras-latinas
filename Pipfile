@@ -7,6 +7,10 @@ name = "pypi"
 pandas = "*"
 numpy = "*"
 plotly = "*"
+bs4 = "*"
+requests = "*"
+networkx = "*"
+pyvis = "*"
 
 [dev-packages]
 ipykernel = "*"
