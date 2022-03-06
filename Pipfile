@@ -11,6 +11,10 @@ bs4 = "*"
 requests = "*"
 networkx = "*"
 pyvis = "*"
+pyparsing = "*"
+cycler = "*"
+kiwisolver = "*"
+matplotlib = "*"
 
 [dev-packages]
 ipykernel = "*"
