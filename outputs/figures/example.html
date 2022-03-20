@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "white"}, "id": "Brasil", "label": "Brasil", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Clarice Lispector", "label": "Clarice Lispector", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Nelida Pi\u00f1on", "label": "Nelida Pi\u00f1on", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Cristiane Sobral", "label": "Cristiane Sobral", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Aline Valek", "label": "Aline Valek", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Noemi Jaffe", "label": "Noemi Jaffe", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "D\u00e9bora Ferraz", "label": "D\u00e9bora Ferraz", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "M\u00e9xico", "label": "M\u00e9xico", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Carmen \u00c1vila", "label": "Carmen \u00c1vila", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Orfa Alarc\u00f3n", "label": "Orfa Alarc\u00f3n", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "Mar\u00eda de Alva Levy", "label": "Mar\u00eda de Alva Levy", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "Brasil", "to": "Clarice Lispector", "weight": 1}, {"from": "Brasil", "to": "Nelida Pi\u00f1on", "weight": 1}, {"from": "Brasil", "to": "Cristiane Sobral", "weight": 1}, {"from": "Brasil", "to": "Aline Valek", "weight": 1}, {"from": "Brasil", "to": "Noemi Jaffe", "weight": 1}, {"from": "Brasil", "to": "D\u00e9bora Ferraz", "weight": 1}, {"from": "M\u00e9xico", "to": "Carmen \u00c1vila", "weight": 1}, {"from": "M\u00e9xico", "to": "Orfa Alarc\u00f3n", "weight": 1}, {"from": "M\u00e9xico", "to": "Mar\u00eda de Alva Levy", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"physics": {"barnesHut": {"gravitationalConstant": -9150, "centralGravity": 0.2, "springConstant": 0.11}, "minVelocity": 0.75}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
