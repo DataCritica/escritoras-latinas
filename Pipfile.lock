@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6b749c4c43c5db8edc62dbd9e6a9305af582624b558b56af0288499aceb4f017"
+            "sha256": "22a3211678dbfb6957887fbc4c641c6ed0117513c8c4ee89656f50f484bc6ca5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -302,11 +302,11 @@
         },
         "fonttools": {
             "hashes": [
-                "sha256:2b288eae806800668cb5cdf52a37b5ac701c5adda2dd5c88b685581ce3385285",
-                "sha256:f8b35ed9ba189710994cec2c86b8eb5f0c49336698575e439a0d5671d3ca1ace"
+                "sha256:236b29aee6b113e8f7bee28779c1230a86ad2aac9a74a31b0aedf57e7dfb62a4",
+                "sha256:2df636a3f402ef14593c6811dac0609563b8c374bd7850e76919eb51ea205426"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==4.31.1"
+            "version": "==4.31.2"
         },
         "gitdb": {
             "hashes": [
@@ -591,13 +591,6 @@
                 "sha256:88a1051873018da288eee8538d476dffe1262495144b33ecb586c4ab266bb8d4"
             ],
             "version": "==0.8.4"
-        },
-        "names": {
-            "hashes": [
-                "sha256:726e46254f2ed03f1ffb5d941dae3bc67c35123941c29becd02d48d0caa2a671"
-            ],
-            "index": "pypi",
-            "version": "==0.3.0"
         },
         "nbclient": {
             "hashes": [

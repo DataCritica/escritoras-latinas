@@ -7,10 +7,10 @@ from load_css import local_css
 
 
 # Open image with PIL
-favicon = Image.open("./data/assets/pen.png")
+favicon = Image.open("./data/assets/favicon.ico")
 # Set title page and favicon
 st.set_page_config(
-    page_title='DataCrítica - Escritoras Latinoamericanas', 
+    page_title='Escritoras latinoamericanas - DataCrítica', 
     page_icon = favicon, 
     layout = 'wide', 
     initial_sidebar_state = 'auto')
@@ -93,13 +93,12 @@ with st.sidebar:
     ¿Conoces alguna escritora que falte en esta red?
 </h5>
 <h5 style='text-align: center; font-size: 14px;'>
-<a href="https://www.datacritica.org" target="_blank">
+<a href="https://ee.humanitarianresponse.info/x/DPNAGl9g" target="_blank">
     Añádela aquí
 </a>
 </h5>
 """, unsafe_allow_html=True
 )
-
 
 # Hide streamlit menu and footer message
 hide_streamlit_style = """
