@@ -13,6 +13,7 @@ networkx = "*"
 pyvis = "*"
 matplotlib = "*"
 streamlit = "*"
+names = "*"
 
 [dev-packages]
 ipykernel = "*"
