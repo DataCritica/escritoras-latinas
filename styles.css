@@ -30,7 +30,11 @@
   background-color: #2f2f2f;
 }
 
-h1{
+.appview-container {
+  background-color: #2f2f2f;
+  }
+
+h1 {
   color: #23DC5F;
 }
 
