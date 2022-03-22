@@ -1,4 +1,3 @@
-import networkx as nx
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
@@ -23,7 +22,7 @@ local_css("styles.css")
 st.sidebar.title("Escritoras latinoamericanas")
 
 # Read dataset (CSV)
-df = pd.read_csv('./data/processed/random_data.csv')
+df = pd.read_csv('./data/processed/escritoras_wiki.csv')
 
 # Define list of selection options and sort alphabetically
 countries = df['País'].drop_duplicates().to_list()
@@ -36,12 +35,14 @@ selected_country = st.sidebar.selectbox('', countries, format_func=lambda x: 'Se
 if selected_country:
     # Create network graph with user selection
     df_select = df.loc[df['País'] == selected_country]
+    count = df_select['País'].count()
     source = df_select['País']
-    target = df_select['Escritora']
+    target = df_select['Nombre']
     bio = df_select['Biografía']
+    url = df_select['Url']
 
     # Create an interator with the selected data
-    edge_data = zip(source, target, bio)
+    edge_data = zip(source, target, bio, url)
 
     # Initiate PyVis network object
     net = Network(height='600px', width='100%', notebook=True, bgcolor='#222222', font_color='white')
@@ -51,17 +52,15 @@ if selected_country:
         src = e[0]
         tgt = e[1]
         bio = e[2]
-        net.add_node(src, src, size=15, title=src, color='#0200ff')
-        net.add_node(tgt, tgt, size=15, title=bio, color='#23DC5F')
+        url = e[3]
+        net.add_node(src, src, size=15, title=f'{src}:<br>{count} escritoras', color='#0200ff')
+        net.add_node(tgt, tgt, size=15, title=f'{bio}<br><br><a href="{url}" target="_blank">Leer más</a>', color='#23DC5F')
         net.add_edge(src, tgt, color='#DC23A0')
-
-    for node in net.nodes:
-        node['title'] += '<br><br><a href="https://www.datacritica.org" target="_blank">Leer más</a>'
 
     # Generate network with specific layout settings
     net.repulsion(
                         node_distance=400,
-                        central_gravity=0.5,
+                        central_gravity=0.9,
                         spring_length=150,
                         spring_strength=0.05,
                         damping=0.95
