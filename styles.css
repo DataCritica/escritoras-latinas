@@ -3,6 +3,10 @@
   background-color: #151515;
 }
 
+.sidebar .sidebar-content {
+  background-color: #2f2f2f;
+}
+
 .reportview-container .markdown-text-container { 
   font-family: monospace; 
 } 
@@ -16,7 +20,8 @@
 } 
 
 .st-at {
-   background-color: #0c0080; 
+   background-color: #0c0080;
+   color: white; 
 }
 
 [class^="st-b"] { 

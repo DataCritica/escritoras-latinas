@@ -13,7 +13,7 @@ st.set_page_config(
     page_title='Escritoras latinoamericanas - DataCrítica', 
     page_icon = favicon, 
     layout = 'wide', 
-    initial_sidebar_state = 'auto')
+    initial_sidebar_state = 'expanded',)
 
 # Read styles file
 local_css("styles.css")
