@@ -1,9 +1,21 @@
+import networkx as nx
+import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
-import pandas as pd
-import networkx as nx
+from PIL import Image
 from pyvis.network import Network
+
 from load_css import local_css
+
+
+# Open image with PIL
+favicon = Image.open("./data/assets/pen.png")
+# Set title page and favicon
+st.set_page_config(
+    page_title='DataCrítica - Escritoras Latinoamericanas', 
+    page_icon = favicon, 
+    layout = 'wide', 
+    initial_sidebar_state = 'auto')
 
 # Read styles file
 local_css("styles.css")
@@ -30,7 +42,7 @@ if selected_country:
     G = nx.from_pandas_edgelist(df_select, source='País', target='Escritora', edge_attr=True)
 
     # Initiate PyVis network object
-    net = Network(height='700px', width='100%', notebook=True, bgcolor='#222222', font_color='white')
+    net = Network(height='600px', width='100%', notebook=True, bgcolor='#222222', font_color='white')
 
     # Take Networkx graph and translate it to a PyVis graph format
     net.from_nx(G)
@@ -60,10 +72,23 @@ if selected_country:
     components.html(HtmlFile.read(), height=700, scrolling=True)
 
 
-# Set footer
-st.sidebar.write("Puedes interactuar con la red")
-
-st.sidebar.write("¿Conoces alguna escritora que falte en esta red?")
+# Show message on the sidebar
+with st.sidebar:
+    st.markdown(
+"""
+<br>
+<br>
+<br>
+<h5 style='text-align: center; color: #DC23A0; font-size: 14px;'>
+    ¿Conoces alguna escritora que falte en esta red?
+</h5>
+<h5 style='text-align: center; font-size: 14px;'>
+<a href="https://www.datacritica.org" target="_blank">
+    Añádela aquí
+</a>
+</h5>
+""", unsafe_allow_html=True
+)
 
 
 # Hide streamlit menu and footer message

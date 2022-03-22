@@ -1,48 +1,29 @@
+import networkx as nx
+import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
-import pandas as pd
-import networkx as nx
+from PIL import Image
 from pyvis.network import Network
+from load_css import local_css
 
 
-# Set page width
-st.set_page_config(layout="wide")
+# Open image with PIL
+favicon = Image.open("./data/assets/pen.png")
+# Set title page and favicon
+st.set_page_config(
+    page_title='DataCrítica - Escritoras Latinoamericanas', 
+    page_icon = favicon, 
+    layout = 'wide', 
+    initial_sidebar_state = 'auto')
+
+# Read styles file
+local_css("styles.css")
+
+# Set sidebar
+st.sidebar.title("Escritoras latinoamericanas")
 
 # Read dataset (CSV)
-df = pd.read_csv('data/raw/data.csv')
-
-# Set container
-st.markdown(
-        """
-<style>
-    .appview-container .main {
-        color: white;
-        background-color: #151515;
-    }
-    .reportview-container .markdown-text-container { 
-        font-family: monospace; 
-    } 
-    .Widget>label { 
-        color: white; font-family: monospace; 
-    } 
-    .st-bb { 
-        background-color: transparent; 
-    } 
-    .st-at {
-         background-color: #0c0080; 
-    }
-    [class^="st-b"] { 
-        color: white; 
-        font-family: monospace;
-        background-color: #2a2a2b; 
-    }
-</style>
-""",
-        unsafe_allow_html=True,
-    )
-
-# Set header title
-st.markdown("<h1 style='text-align: center; color: #23DC5F;'>Escritoras Latinoamericanas</h1>", unsafe_allow_html=True)
+df = pd.read_csv('./data/processed/random_data.csv')
 
 # Define list of selection options and sort alphabetically
 countries = df['País'].drop_duplicates().to_list()
@@ -50,27 +31,39 @@ countries.sort()
 countries.insert(0, '')
 
 # Implement select dropdown menu for option selection (returns a list)
-selected_country = st.selectbox('', countries, format_func=lambda x: 'Selecciona un país' if x == '' else x)
+selected_country = st.sidebar.selectbox('', countries, format_func=lambda x: 'Selecciona un país' if x == '' else x)
 
 if selected_country:
     # Create network graph with user selection
     df_select = df.loc[df['País'] == selected_country]
+    source = df_select['País']
+    target = df_select['Escritora']
+    bio = df_select['Biografía']
 
-    # Create networkx graph object from pandas dataframe
-    G = nx.from_pandas_edgelist(df_select, source='País', target='Escritora', edge_attr=True)
+    # Create an interator with the selected data
+    edge_data = zip(source, target, bio)
 
     # Initiate PyVis network object
-    net = Network(height='500px', width='100%', notebook=True, bgcolor='#222222', font_color='white')
+    net = Network(height='600px', width='100%', notebook=True, bgcolor='#222222', font_color='white')
 
-    # Take Networkx graph and translate it to a PyVis graph format
-    net.from_nx(G)
+    # Create a node for each element on the iterator
+    for e in edge_data:
+        src = e[0]
+        tgt = e[1]
+        bio = e[2]
+        net.add_node(src, src, size=15, title=src, color='#0200ff')
+        net.add_node(tgt, tgt, size=15, title=bio, color='#23DC5F')
+        net.add_edge(src, tgt, color='#DC23A0')
+
+    for node in net.nodes:
+        node['title'] += '<br><br><a href="https://www.datacritica.org" target="_blank">Leer más</a>'
 
     # Generate network with specific layout settings
     net.repulsion(
                         node_distance=400,
-                        central_gravity=0.33,
-                        spring_length=110,
-                        spring_strength=0.10,
+                        central_gravity=0.5,
+                        spring_length=150,
+                        spring_strength=0.05,
                         damping=0.95
                         )
 
@@ -87,16 +80,27 @@ if selected_country:
         HtmlFile = open(f'{path}/pyvis_graph.html', 'r', encoding='utf-8')
 
     # Load HTML file in HTML component for display on Streamlit page
-    components.html(HtmlFile.read(), height=600, scrolling=True)
+    components.html(HtmlFile.read(), height=700, scrolling=True)
 
-# Footer
-st.markdown(
+
+# Show message on the sidebar
+with st.sidebar:
+    st.markdown(
 """
 <br>
-<h5 style='text-align: center; color: #DC23A0;'>¿Conoces alguna escritora que falte en esta red?</h5>
-<h5 style='text-align: center;'><a href="https://www.datacritica.org" target="_blank">Llena este formulario para que podamos incluirla</a></h5>
+<br>
+<br>
+<h5 style='text-align: center; color: #DC23A0; font-size: 14px;'>
+    ¿Conoces alguna escritora que falte en esta red?
+</h5>
+<h5 style='text-align: center; font-size: 14px;'>
+<a href="https://www.datacritica.org" target="_blank">
+    Añádela aquí
+</a>
+</h5>
 """, unsafe_allow_html=True
 )
+
 
 # Hide streamlit menu and footer message
 hide_streamlit_style = """
