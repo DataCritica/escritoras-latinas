@@ -3,14 +3,6 @@
   background-color: #151515;
 }
 
-.sidebar .sidebar-content {
-  background-color: #2f2f2f;
-}
-
-.reportview-container .markdown-text-container { 
-  font-family: monospace; 
-} 
-
 .Widget>label { 
   color: white;
 } 
@@ -38,16 +30,14 @@
   cursor: pointer;
 }
 
+/* Sidebar */
 .css-zbg2rx {
   background-color: #2f2f2f;
 }
 
+/* Sidebar close button */
 .css-ex7byz {
   color: white;
-}
-
-.vis-network {
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
