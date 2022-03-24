@@ -3,11 +3,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
 from pyvis.network import Network
-from load_css import local_css
+import escritoras_latinas.data.load as load 
 
 
 # Open image with PIL
-favicon = Image.open("./data/assets/favicon.ico")
+favicon = Image.open("./assets/favicon.ico")
 # Set title page and favicon
 st.set_page_config(
     page_title='Escritoras latinoamericanas - DataCrítica', 
@@ -16,12 +16,12 @@ st.set_page_config(
     initial_sidebar_state = 'expanded',)
 
 # Read styles file
-local_css("styles.css")
+load.css("styles.css")
 
 # Set sidebar
 st.sidebar.title("Escritoras latinoamericanas")
 
-# Read dataset (CSV)
+# Read 'csv' file as dataframe
 df = pd.read_csv('./data/processed/escritoras_wiki.csv')
 
 # Define list of selection options and sort alphabetically
@@ -33,7 +33,7 @@ countries.insert(0, '')
 selected_country = st.sidebar.selectbox('', countries, format_func=lambda x: 'Selecciona un país' if x == '' else x)
 
 if selected_country:
-    # Create network graph with user selection
+    # Select data with user selection
     df_select = df.loc[df['País'] == selected_country]
     count = df_select['País'].count()
     source = df_select['País']
@@ -54,7 +54,7 @@ if selected_country:
         bio = e[2]
         url = e[3]
         net.add_node(src, src, size=15, title=f'{src}:<br>{count} escritoras', color='#0200ff')
-        net.add_node(tgt, tgt, size=15, title=f'{bio}<br><br><a href="{url}" target="_blank">Leer más</a>', color='#23DC5F')
+        net.add_node(tgt, tgt, size=15, title=f'<p style="font-family: Arial, Helvetica, sans-serif; width: auto;">{bio}<br><br><a href="{url}" target="_blank">Leer más</a></p>', color='#23DC5F')
         net.add_edge(src, tgt, color='#DC23A0')
 
     # Generate network with specific layout settings

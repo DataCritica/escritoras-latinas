@@ -12,30 +12,48 @@
 } 
 
 .Widget>label { 
-  color: white; font-family: monospace; 
+  color: white;
 } 
 
 .st-bb { 
-  background-color: transparent; 
+  background-color: transparent;
 } 
 
 .st-at {
-   background-color: #0c0080;
    color: white; 
+}
+
+.st-at:hover{
+  color: black; 
+}
+
+.st-d4 {
+  color: white;
 }
 
 [class^="st-b"] { 
   color: white; 
   font-family: monospace;
+  background-color: #0c0080;
+  cursor: pointer;
+}
+
+.css-zbg2rx {
   background-color: #2f2f2f;
 }
 
-.appview-container {
-  background-color: #2f2f2f;
-  }
+.css-ex7byz {
+  color: white;
+}
+
+.vis-network {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 h1 {
   color: #23DC5F;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 p {
@@ -43,4 +61,5 @@ p {
   font-size: 20px;
   text-align: center;
   font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
 }
