@@ -1,3 +1,6 @@
 [submodule "mosaic_image"]
 	path = mosaic_image
 	url = git@github.com:louisowen6/Mosaic_Image.git
+[submodule "photo_mosaic"]
+	path = photo_mosaic
+	url = git@github.com:dvdtho/python-photo-mosaic.git
