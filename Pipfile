@@ -9,10 +9,11 @@ numpy = "*"
 plotly = "*"
 bs4 = "*"
 requests = "*"
-networkx = "*"
 pyvis = "*"
 matplotlib = "*"
 streamlit = "*"
+escritoras-latinas = {editable = true, path = "."}
+pillow = "*"
 
 [dev-packages]
 ipykernel = "*"
