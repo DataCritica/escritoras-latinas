@@ -1,22 +1,22 @@
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
+import escritoras_latinas.data.load as load 
 from PIL import Image
 from pyvis.network import Network
-import escritoras_latinas.data.load as load 
 
 
 # Open image with PIL
 favicon = Image.open("./assets/favicon.ico")
 # Set title page and favicon
 st.set_page_config(
-    page_title='Escritoras latinoamericanas - DataCrítica', 
+    page_title='Red de escritoras - DataCrítica', 
     page_icon = favicon, 
     layout = 'wide', 
     initial_sidebar_state = 'expanded',)
 
 # Read styles file
-load.css("styles.css")
+load.css("style.css")
 
 # Set sidebar
 st.sidebar.title("Escritoras latinoamericanas")
@@ -45,7 +45,7 @@ if selected_country:
     edge_data = zip(source, target, bio, url)
 
     # Initiate PyVis network object
-    net = Network(height='600px', width='100%', notebook=True, bgcolor='#222222', font_color='white')
+    net = Network(height='80vh', width='100%', notebook=True, bgcolor='#222222', font_color='white')
 
     # Create a node for each element on the iterator
     for e in edge_data:
