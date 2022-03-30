@@ -1,0 +1,3 @@
+[submodule "mosaic_image"]
+	path = mosaic_image
+	url = git@github.com:louisowen6/Mosaic_Image.git
