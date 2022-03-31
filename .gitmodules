@@ -1,0 +1,3 @@
+[submodule "photomosaics"]
+	path = photomosaics
+	url = git@github.com:ZENALC/photomosaics.git
