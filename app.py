@@ -56,7 +56,7 @@ if selected_country:
         bio = e[2]
         url = e[3]
         net.add_node(src, src, size=15, title=f'<p style="font-family: Arial, Helvetica, sans-serif; margin: 8px;">{src}: {count} escritoras</p>', color='#0200ff')
-        net.add_node(tgt, tgt, size=15, title=f'<p style="font-family: Arial, Helvetica, sans-serif; width: 400px; margin: 8px;">{bio}<br><br><a href="{url}" target="_blank">Leer más</a></p>', color='#23DC5F')
+        net.add_node(tgt, tgt, size=15, title=f'<p style="font-family: Arial, Helvetica, sans-serif; width: 300px; margin: 8px;">{bio}<br><br><a href="{url}" target="_blank">Leer más</a></p>', color='#23DC5F')
         net.add_edge(src, tgt, color='#DC23A0')
 
     # Generate network with specific layout settings
