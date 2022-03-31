@@ -6,11 +6,13 @@ from PIL import Image
 from pyvis.network import Network
 
 
+# Load relative path
+assets = load.assets
 # Open image with PIL
-favicon = Image.open("./assets/favicon.ico")
+favicon = Image.open(f'{assets}/favicon.ico')
 # Set title page and favicon
 st.set_page_config(
-    page_title='Red de escritoras - DataCrítica', 
+    page_title='Escritoras latinoamericanas - DataCrítica', 
     page_icon = favicon, 
     layout = 'wide', 
     initial_sidebar_state = 'expanded',)
