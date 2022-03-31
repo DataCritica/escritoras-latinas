@@ -1,8 +1,8 @@
-* {
+/* * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
 .appview-container .main {
   background-color: #151515;
@@ -30,13 +30,13 @@
 }
 
 /* Sidebar */
-.css-zbg2rx {
+.css-1adrfps, .css-1oe6wy4 {
   background-color: #2f2f2f;
-  width: 30vh;
+  width: 45vh;
 }
 
 /* Sidebar close button */
-.css-ex7byz {
+.css-9s5bis, .css-1ot44c6 {
   color: white;
 }
 
@@ -54,6 +54,7 @@ p {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.css-18e3th9 {
-  padding: 5px;
+header.css-vl8c1e {
+  background: transparent;
+  backdrop-filter: none;
 }
