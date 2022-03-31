@@ -15,12 +15,13 @@ streamlit = "*"
 escritoras-latinas = {editable = true, path = "."}
 pillow = "*"
 networkx = "*"
-
-[dev-packages]
-ipykernel = "*"
-setuptools = "*"
 pyprojroot = "*"
 pathlib = "*"
+setuptools = "*"
+ipykernel = "*"
+
+[dev-packages]
+setuptools = "*"
 
 [requires]
 python_version = "*"
