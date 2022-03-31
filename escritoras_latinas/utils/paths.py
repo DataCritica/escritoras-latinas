@@ -39,7 +39,11 @@ for dir_type in [
         ["outputs"],
         ["outputs", "figures"],
         ["outputs", "tables"],
-        ["assets"]
+        ["assets"],
+        ["assets", "imgs"],
+        ["assets", "imgs_processed"],
+        ["assets", "targets"],
+        ["assets", "targets_processed"]
     ]:
     dir_var = '_'.join(dir_type) + "_dir"
     exec(f"{dir_var} = make_dir_function({dir_type})")
