@@ -19,7 +19,7 @@ pyprojroot = "*"
 pathlib = "*"
 setuptools = "*"
 ipykernel = "*"
-chart-studio = "*"
+pigeon-jupyter = "*"
 
 [dev-packages]
 setuptools = "*"
