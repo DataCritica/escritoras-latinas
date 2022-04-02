@@ -23,6 +23,7 @@ def css(styles):
 # Inputs
 data_raw = path.data_raw_dir('escritoras.csv')
 data_escritoras = path.data_processed_dir('escritoras_wiki.csv')
+escritores_latam = path.data_processed_dir('escritores_latam.csv')
 escritores_destacados = path.outputs_tables_dir('escritores_destacados.csv')
 
 # Outputs
