@@ -39,6 +39,7 @@ for dir_type in [
         ["outputs"],
         ["outputs", "figures"],
         ["outputs", "tables"],
+        ["outputs", "networks"],        
         ["assets"],
         ["assets", "imgs"],
         ["assets", "imgs_processed"],
