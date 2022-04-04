@@ -9,7 +9,7 @@ from pyvis.network import Network
 # Load relative path
 assets = load.assets
 # Open image with PIL
-favicon = Image.open(f'{assets}/favicon.ico')
+favicon = Image.open(f'{assets}/datacritica/favicon.ico')
 # Set title page and favicon
 st.set_page_config(
     page_title='Escritoras latinoamericanas - DataCrítica', 
@@ -21,7 +21,14 @@ st.set_page_config(
 load.css("style.css")
 
 # Set sidebar
-st.sidebar.title("Escritoras latinoamericanas")
+with st.sidebar:
+    st.markdown(
+"""
+<div class="sidebar-title">
+    Escritoras latinoamericanas
+</div>
+""", unsafe_allow_html=True
+)
 
 # Read 'csv' file as dataframe
 df = pd.read_csv('./data/processed/escritoras_wiki.csv')
@@ -55,8 +62,10 @@ if selected_country:
         tgt = e[1]
         bio = e[2]
         url = e[3]
-        net.add_node(src, src, size=15, title=f'<p style="font-family: Arial, Helvetica, sans-serif; margin: 8px;">{src}: {count} escritoras</p>', color='#0200ff')
-        net.add_node(tgt, tgt, size=15, title=f'<p style="font-family: Arial, Helvetica, sans-serif; width: 300px; margin: 8px;">{bio}<br><br><a href="{url}" target="_blank">Leer más</a></p>', color='#23DC5F')
+        net.add_node(src, src, size=15, 
+            title=f'<p style="font-family: Arial, Helvetica, sans-serif; margin: 8px;">{src}: {count} escritoras</p>', color='#0200ff')
+        net.add_node(tgt, tgt, size=15, 
+            title=f'<p style="font-family: Arial, Helvetica, sans-serif; width: 300px; margin: 8px;">{bio}<br><br><a href="{url}" target="_blank" rel="noopener noreferrer">Leer más</a></p>', color='#23DC5F')
         net.add_edge(src, tgt, color='#DC23A0')
 
     # Generate network with specific layout settings
@@ -83,24 +92,25 @@ if selected_country:
     # Load HTML file in HTML component for display on Streamlit page
     components.html(HtmlFile.read(), height=700, scrolling=True)
 
-
 # Show message on the sidebar
 with st.sidebar:
     st.markdown(
 """
-<br>
-<br>
-<br>
-<h5 style='text-align: center; color: #DC23A0; font-size: 14px;'>
-    ¿Conoces alguna escritora que falte en esta red?
-</h5>
-<h5 style='text-align: center; font-size: 14px;'>
-<a href="https://ee.humanitarianresponse.info/x/DPNAGl9g" target="_blank">
-    Añádela aquí
-</a>
-</h5>
+<div class="sidebar-container">
+    <div class="sidebar-text">
+        ¿Conoces alguna escritora que falte en esta red?
+    </div>
+    <div class="sidebar-link">
+    <a href="https://ee.humanitarianresponse.info/x/DPNAGl9g" target="_blank" rel="noopener noreferrer">
+        Añádela aquí
+    </a>
+    </div>
+</div>
 """, unsafe_allow_html=True
 )
+
+# Insert image to sidebar
+st.sidebar.image("./assets/datacritica/logo_datacritica.png", width=100)
 
 # Hide streamlit menu and footer message
 hide_streamlit_style = """

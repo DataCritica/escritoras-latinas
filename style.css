@@ -1,8 +1,12 @@
-/* * {
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-} */
+}
+
+html {
+  font-size: 62.5%;
+}
 
 .appview-container .main {
   background-color: #151515;
@@ -20,9 +24,11 @@
 /* Select button */
 .st-d4 {
   color: white;
+  font-size: 1.6rem;
 }
 
 [class^="st-b"] { 
+  font-size: 1.6rem;
   color: white; 
   font-family: monospace;
   background-color: #0c0080;
@@ -40,21 +46,52 @@
   color: white;
 }
 
-h1 {
-  color: #23DC5F;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-p {
-  color:#DC23A0;
-  font-size: 20px;
-  text-align: center;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 header.css-vl8c1e {
   background: transparent;
   backdrop-filter: none;
+}
+
+.sidebar-title {
+  font-size: 2rem;
+  color: #23DC5F;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: 600;
+}
+
+.sidebar-container {
+ height: 100px;
+}
+
+.sidebar-text {
+  text-align: center;
+  color: #DC23A0;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar-link {
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar-link a {
+  text-decoration: none;
+  color:#DCBB23;
+}
+
+.block-container {
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.css-1v0mbdj {
+  margin: 50px auto;
+  filter: invert();
 }
