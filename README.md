@@ -1,9 +1,12 @@
 # Escritoras Latinas
 
-This repository was developed for the code and data behind the story [¿Estás buscando a la siguiente escritora para leer?](https://datacritica.org/)
+This repository was developed for the code and data behind the story [Constelaciones de escritoras latinoamericanas (nacidas en el siglo XX).](https://datacritica.org/portfolio/constelaciones-de-escritoras-latinoamericanas-nacidas-en-el-siglo-xx/)
 
-The analysis uses web scrapping of Wikipedia entries for Latin American women writers and network graph visualization.
+The analysis uses web scrapping of Wikipedia entries for Latin American women writers and network graph visualization in order to create a [web application](http://escritoraslatam.datacritica.org/).
 
+These are the dataviz employed at the story:
+- [Escritores destacados de la literatura latinoamericana](https://escritores-latam.surge.sh/)
+- [Red de escritoras en México](https://escritoras-mexico.surge.sh/)
 ---
 
 ## Directory Structure
