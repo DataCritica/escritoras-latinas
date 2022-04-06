@@ -46,7 +46,8 @@ El análisis utiliza extracción de datos de las entradas de Wikipedia para escr
 │   ├── 1.0-annotate-data.ipynb
 │   ├── 1.1-process-images.ipynb
 │   ├── 2.0-visualize-network.ipynb
-│   └── 2.1-visualize-donut-chart.ipynb
+│   ├── 2.1-visualize-network.ipynb
+│   └── 2.2-visualize-donut-chart.ipynb
 ├── outputs                             # Exportaciones generadas por los cuadernos
 │   ├── figures                         # Gráficos, mapas, etc.
 │   │   └── index.html
