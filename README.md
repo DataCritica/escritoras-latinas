@@ -3,7 +3,7 @@
 
 # Latin American Women Writers
 
-This repository was developed for the code and data behind the story [Una constelación de escritoras latinoamericanas (nacidas en el siglo XX).](https://datacritica.org/portfolio/constelaciones-de-escritoras-latinoamericanas-nacidas-en-el-siglo-xx/)
+This repository was developed for the code and data behind the story: [Una constelación de escritoras latinoamericanas (nacidas en el siglo XX).](https://datacritica.org/portfolio/constelaciones-de-escritoras-latinoamericanas-nacidas-en-el-siglo-xx/)
 
 The analysis uses web scrapping of Wikipedia entries for Latin American women writers and network graph visualization in order to create a [web application](http://escritoraslatam.datacritica.org/).
 
