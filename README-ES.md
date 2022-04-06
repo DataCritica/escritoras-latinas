@@ -3,9 +3,9 @@
 
 # Escritoras Latinoamericanas
 
-Este repositorio fue desarrollado para el código y los datos detrás de la historia [Una constelación de escritoras latinoamericanas (nacidas en el siglo XX)](https://datacritica.org/portfolio/constelaciones-de-escritoras-latinoamericanas-nacidas-en-el-siglo-xx/)
+Este repositorio fue desarrollado para el código y los datos detrás de la historia: [Una constelación de escritoras latinoamericanas (nacidas en el siglo XX)](https://datacritica.org/portfolio/constelaciones-de-escritoras-latinoamericanas-nacidas-en-el-siglo-xx/)
 
-El análisis utiliza extracción de datos de las entradas de Wikipedia para escritoras latinoamericanas y visualización de gráficos de red para crear una [aplicación web](http://escritoraslatam.datacritica.org/).
+El análisis utiliza extracción de datos de las entradas de Wikipedia para escritoras latinoamericanas y visualización de redes para crear una [aplicación web](http://escritoraslatam.datacritica.org/).
 
 ---
 
