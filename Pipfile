@@ -20,6 +20,11 @@ pathlib = "*"
 setuptools = "*"
 ipykernel = "*"
 pigeon-jupyter = "*"
+gensim = "*"
+nltk = "*"
+top2vec = "*"
+stanza = "*"
+spacy-stanza = "*"
 
 [dev-packages]
 setuptools = "*"
